@@ -11,6 +11,9 @@ gem "bcrypt", "~> 3.1", ">= 3.1.12"
 gem "draper", "~> 4.0"
 gem "rack-cors", "~>1.1.1"
 gem 'active_model_serializers', '~> 0.10.2'
+gem 'interactor-rails', '~> 2.1', '>= 2.1.1'
+gem 'aasm', '~> 4.11', '>= 4.11.1'
+gem "sidekiq", "~> 6.0.5"
 # Use mysql as the database for Active Record
 gem "mysql2", ">= 0.4.4"
 #gem 'sqlite3', '~> 1.4'
@@ -38,7 +41,7 @@ group :development, :test do
   gem "factory_bot_rails", "~> 5.1.1"
   gem "faker", "~> 2.10.0"
   gem "listen", ">= 3.0.5", "< 3.2"
-  gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
+  gem "byebug"
 end
 
 group :development do

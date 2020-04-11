@@ -1,6 +1,10 @@
 version: '3.7'
 
 services:
+  redis:
+    image: "redis:4.0"
+    volumes:
+       - "redis:/data"
   db:
     image: mysql:5.7.24
     volumes:
@@ -24,5 +28,22 @@ services:
       RAILS_ENV: development
     stdin_open: true
     tty: true
+  sidekiq:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - app
+      - db
+      - redis
+    volumes:
+      - .:/app
+    env_file: .env
+    environment:
+      RAILS_ENV: development
+    stdin_open: true
+    tty: true
+    entrypoint: ./entrypoints/sidekiq-entrypoint.sh
 volumes:
   db-data:
+  redis:

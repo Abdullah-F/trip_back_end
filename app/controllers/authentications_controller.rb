@@ -4,12 +4,15 @@ class AuthenticationsController < ApplicationController
   def authenticate
     expires_at = 1.hour.from_now
     expires_in_seconds = expires_at - Time.now
-    command = AuthenticateUser.call(params[:email], params[:password], expires_at)
+    result = User::AuthenticateUser
+      .call(email: params[:email], password: params[:password], exp: expires_at)
 
-    if command.success?
-      render json: command.user.decorate.to_authenticated({ JWTtoken: command.result, expires_in: expires_in_seconds })
+    if result.success?
+      render json: result.user,
+        JWTtoken: result.token,
+        expires_in: expires_in_seconds
     else
-      render json: { error: command.errors }, status: :unauthorized
+      render json: { error: result.errors }, status: :unauthorized
     end
   end
 end

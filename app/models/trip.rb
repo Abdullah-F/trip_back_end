@@ -1,6 +1,7 @@
 class Trip < ApplicationRecord
   include AASM
   validates_presence_of :status
+  after_commit :invalidate_cache
 
   has_many :drivers, dependent: :nullify
   has_many :locations, dependent: :destroy
@@ -18,5 +19,9 @@ class Trip < ApplicationRecord
     event :complete do
       transitions from: :ongoing, to: :completed
     end
+  end
+
+  def invalidate_cache
+    Rails.cache.delete('trips')
   end
 end

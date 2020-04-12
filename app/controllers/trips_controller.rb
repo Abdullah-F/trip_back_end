@@ -2,7 +2,10 @@ class TripsController < ApplicationController
   before_action :set_trip, only: %i(show update destroy)
 
   def index
-    trips = Trip.all
+    trips = Rails.cache.fetch("trips") do
+      puts "not reading cashe"
+      Trip.all.to_a
+    end
     render json: trips, status: :ok
   end
 

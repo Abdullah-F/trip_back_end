@@ -78,7 +78,9 @@ Things To be done
 1-user better cashing other than the default store for rails.
 <br>
 2-most imprtantly tests bye now are only unit tests for controllers, interactors, models, etc all in isolation. so no integration tests are witten by now. so adding itegration tests is important just to tests the state of the app as a whole.
+<br>
 3-tests serialzers.
+
 Contribution
 ===============
 pull & update & sumit your MR, all will be welcomed.

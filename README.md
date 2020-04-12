@@ -63,7 +63,9 @@ to run the app please follow  the following steps:
 =========
 `docker-compose up -d` then it should be available on <a href='http://localhost'> localhost </a>
 <br>
+
 [NOTE] please note that I do not check in the etry point if the db is up or not so the app can wait for the db if the command faild to start the app just run it agian it will start it by then on port 3000 in your local host
+
 4- for running the tests run:
 =========
 `docker exec -it trip_back_end_app_1 bundle exec rspec` you shuould see all the green dots for this app in less than 1.8s.

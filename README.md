@@ -26,7 +26,7 @@ see the index action of the trips controller and the trip modle to learn more ab
 ============
 I used the active model serializer gem in this app for serializing the model into consumed data for the api response.
 
-5- Iteractors
+5- Interactors
 =============
 to make the bussiness logic sperated form the io of the web (controllers) I used the interactors gem, it simply embraces the Facade, Command, Chain of responsibilty patterns to make the app more moduler and reveals its intent from the folder structure. and the interactors manages the interaction of the system objects. resulting in the bussiness rules gets implemented in a clear way with a better code quality. which is an overkill for this small app.
 
@@ -39,7 +39,7 @@ for defining and managing status transition of the trip model I used the AASM ge
 I used rspec, factorybot, and faker for in the testing suite of this app, a long with sidekiq and aasm to help test workers and model stauses.
 all tests are written for the app in advance followin a the TDD approach of writin tests before writing the actual code and following the red-green cycle.
 please move to the how to run the app section to know how to run it and as well how to run the tests.
-
+I was lazy to test the serializers just for the sake of keeping it simple as it is a demo app.
 
 
 
@@ -78,7 +78,7 @@ Things To be done
 1-user better cashing other than the default store for rails.
 <br>
 2-most imprtantly tests bye now are only unit tests for controllers, interactors, models, etc all in isolation. so no integration tests are witten by now. so adding itegration tests is important just to tests the state of the app as a whole.
-
+3-tests serialzers.
 Contribution
 ===============
 pull & update & sumit your MR, all will be welcomed.

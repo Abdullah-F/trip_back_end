@@ -16,7 +16,7 @@ there are four images as follows:
 ==========
 it is used for scheduling the jobs. check the workers dir which contains one worker currently in order to know more.
 
-3- Cashing
+3- Caching
 ==========
 used the default rails cashing only on the model leve (for the trips model only ) for the sake of simplicity in this small app
 however better options like memecached and dalli would server better for real world apps

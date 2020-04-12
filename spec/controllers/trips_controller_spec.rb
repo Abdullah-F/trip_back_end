@@ -7,7 +7,7 @@ RSpec.describe TripsController, type: :controller do
   describe 'GET #index' do
     let(:trips) { build_stubbed_list(:trip, 1) }
     it 'returns http success' do
-      expect(Trip).to receive(:all).and_return(trips)
+      expect(Trip).to receive(:search).and_return(trips)
       get :index
       expect(response).to have_http_status(:ok)
     end

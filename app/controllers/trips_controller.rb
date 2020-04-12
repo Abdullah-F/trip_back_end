@@ -2,10 +2,7 @@ class TripsController < ApplicationController
   before_action :set_trip, only: %i(show update destroy)
 
   def index
-    trips = Rails.cache.fetch("trips") do
-      puts "not reading cashe"
-      Trip.all.to_a
-    end
+    trips = Trip.search # search only calls Trip.all after all no actual search is done :"). just to make tests easier without any not needed mocking for the cache call
     render json: trips, status: :ok
   end
 

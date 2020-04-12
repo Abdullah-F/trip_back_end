@@ -8,6 +8,10 @@ class Trip < ApplicationRecord
 
   enum status: { ready: 0, ongoing: 1, completed: 2 }
 
+  scope :search, -> do
+    Rails.cache.fetch("trips") { all }
+  end
+
   aasm(:status, column: :status, enum: true) do
     state :ready, initial: true
     state :ongoing, :completed
